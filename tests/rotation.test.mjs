@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFileSync} from 'node:fs';
+const sandbox={};vm.runInNewContext(readFileSync('courtcast-rotation.js','utf8'),sandbox);
+const r=sandbox.CCRotation;
+assert.equal(r.decision([{angle:0,score:1,count:1},{angle:-90,score:25,count:6},{angle:90,score:3,count:1},{angle:180,score:2,count:1}]).angle,-90);
+assert.equal(r.decision([{angle:90,score:30,count:6},{angle:0,score:29,count:6}]),null);
+assert(r.score({text:'Hello world again',confidence:90}).score>0);
+assert(r.score({blocks:[{paragraphs:[{lines:[{words:[{text:'Hello',confidence:95}]}]}]}]}).score>0);
+assert.equal(r.score({text:'noise',confidence:10}).score,0);
+console.log('Orientation confidence and fallback tests passed.');
