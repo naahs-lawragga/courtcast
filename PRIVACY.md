@@ -8,7 +8,7 @@ CourtCast asks the browser for screen-capture permission when you explicitly sta
 
 ## Connection information
 
-CourtCast creates random session codes and QR invitation tokens in the browser. Treat them like private access credentials. People who obtain a valid pairing code or invitation may be able to connect. The app uses public PeerJS signaling and Google STUN to establish connections; these external services can receive connection metadata such as network addresses and identifiers. WebRTC encrypts media in transit, but it does not independently verify a viewer's personal identity. Network paths depend on the devices and network.
+CourtCast creates random session codes and QR invitation tokens in the browser. Treat them like private access credentials. Manual pairing now requires an individual sender approval. QR invitations expire after five minutes and may be used once; the sender intentionally opens the viewer's link and grants capture permission. Stop sharing closes existing viewer connections. Never approve a request from a stranger. The app uses public PeerJS signaling and Google STUN to establish connections; these external services can receive connection metadata such as network addresses and identifiers. WebRTC encrypts media in transit, but it does not independently verify a viewer's personal identity. Network paths depend on the devices and network.
 
 ## Hosting and libraries
 

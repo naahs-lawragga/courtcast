@@ -4,7 +4,7 @@ CourtCast is a browser-based wireless screen-sharing project. It uses WebRTC to 
 
 ## Features
 
-- Private session codes and one-use QR invitations
+- Private session codes, individual sender approval for manual requests, and five-minute one-use QR invitations
 - Up to four independent viewer screens (main screen plus three additional screens)
 - Video quality presets, real WebRTC diagnostics, and connection recovery
 - Automatic and manual rotation, with optional local text-based orientation detection on the main viewer
@@ -15,8 +15,8 @@ CourtCast is a browser-based wireless screen-sharing project. It uses WebRTC to 
 
 1. Open the deployed CourtCast website on the viewing device.
 2. Choose Watch screen and scan its QR code using the sender's regular Camera app, or enter the sender's session code.
-3. On the sender, approve screen sharing through the browser's permission dialog.
-4. Stop sharing when finished. Share only with people you trust.
+3. If the viewer entered a manual code, approve the expected viewer on the sender. For QR pairing, scan the intended viewer's QR and then approve screen sharing through the browser's permission dialog.
+4. Stop sharing when finished; this revokes existing viewer connections. Share only with people you trust.
 
 ## Compatibility
 
@@ -24,7 +24,7 @@ Screen capture requires browser support for `getDisplayMedia`. Watching requires
 
 ## Deploy locally or on Vercel
 
-The site is static HTML, CSS and JavaScript. No build command, API key or package installation is needed for the site itself. Serve the files through a local HTTP server for development or HTTPS hosting for deployment. On Vercel, select the Other framework preset, use the repository root and leave the build command empty.
+The site is static HTML, CSS and JavaScript. V9 separates executable application code into `courtcast-app.js` and protocol validation into `courtcast-security.js`; `vercel.json` configures deployment security headers. The MIT-licensed source remains inspectable. No build command, API key or package installation is needed for the site itself. Serve the files through a local HTTP server for development or HTTPS hosting for deployment. On Vercel, select the Other framework preset, use the repository root and leave the build command empty.
 
 External dependencies include PeerJS 1.5.5, QRCode.js 1.0.0, and Tesseract.js 5.1.1 / Tesseract.js-core for optional local orientation recognition. Dependencies are loaded from public CDNs. The project uses PeerJS public signaling and Google STUN; there is no configured TURN relay. These external services have their own terms and privacy practices.
 
@@ -37,3 +37,7 @@ See [Privacy](PRIVACY.md) and [Security](SECURITY.md) for details and limitation
 ## License
 
 CourtCast's original project code is provided under the [MIT License](LICENSE). Third-party dependencies retain their own licenses. Third-party trademarks and branding are not covered by this license. CourtCast is independently developed and is not affiliated with Apple, Google, GitHub or Vercel.
+
+## Security checks
+
+Run `node tests/security.test.mjs` and `node tests/source-scan.mjs` with Node.js 20 or newer. A GitHub Actions workflow runs these checks and audits the pinned npm library versions when Actions is available. Static checks cannot prove that a real WebRTC session or deployed CSP works across all browsers. External libraries remain a supply-chain dependency.
