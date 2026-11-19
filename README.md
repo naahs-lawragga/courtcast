@@ -41,3 +41,7 @@ CourtCast's original project code is provided under the [MIT License](LICENSE). 
 ## Security checks
 
 Run `node tests/security.test.mjs` and `node tests/source-scan.mjs` with Node.js 20 or newer. A GitHub Actions workflow runs these checks and audits the pinned npm library versions when Actions is available. Static checks cannot prove that a real WebRTC session or deployed CSP works across all browsers. External libraries remain a supply-chain dependency.
+
+## Inspect and contribute
+
+The website links to this repository and its privacy, security and license files. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidance. Source access depends on repository visibility; a public release should only occur after historical metadata and credentials have been reviewed. Automated checks and public source are not an independent security certification.
