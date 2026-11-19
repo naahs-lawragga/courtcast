@@ -18,3 +18,6 @@ Security fixes target the latest release on the main branch. This is a community
 - CourtCast does not authenticate a viewer's real-world identity or prevent a recipient from recording the display.
 - Third-party JavaScript dependencies run in the browser and must be included in any security review.
 - Open source makes inspection possible; it is not a guarantee of security.
+
+## V9 hardening
+Manual viewers require explicit sender approval. QR invitations expire after five minutes and are one-use. Media calls must carry a per-connection authorization token. Browser-side request and viewer limits reduce abuse but cannot replace server-side rate limiting. Stop sharing closes existing viewer connections. The hosting configuration adds CSP, anti-framing, MIME sniffing and referrer protections. External libraries are pinned to versions; integrity pinning and an independent security review remain outstanding. No guarantee of complete security is made.
