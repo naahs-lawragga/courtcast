@@ -4,7 +4,7 @@ CourtCast is a browser-based wireless screen-sharing project. It uses WebRTC to 
 
 ## Features
 
-- Private session codes, individual sender approval for manual requests, and five-minute one-use QR invitations
+- Private session codes, viewer-selected nicknames and individual sender approval for manual requests, and five-minute one-use QR invitations
 - Up to four independent viewer screens (main screen plus three additional screens)
 - Video quality presets, real WebRTC diagnostics, and connection recovery
 - Automatic and manual rotation, with optional local text-based orientation detection on the main viewer
