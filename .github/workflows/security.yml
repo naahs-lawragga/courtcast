@@ -21,6 +21,8 @@ jobs:
         run: |
           node --check courtcast-app.js
           node --check courtcast-security.js
+          node --check courtcast-rotation.js
+          node tests/rotation.test.mjs
           node tests/security.test.mjs
           node tests/source-scan.mjs
       - name: Audit pinned runtime libraries
